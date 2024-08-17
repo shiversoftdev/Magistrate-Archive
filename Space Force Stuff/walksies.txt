@@ -1,0 +1,45 @@
+Walkthrough:
+
+	mkdir /etc/quarantine
+
+	FQ1
+	
+		sudo -i
+		cd /etc/init.d
+		ls
+		nano ts.sh
+		answer
+		mv ts.sh /etc/quarantine/ts.sh
+		
+	FQ2
+		
+		navigate to /usr/share
+		open space folder
+		open terminal here
+		stat *
+		answer
+		delete the folder (rm -rf /usr/share/\ *)
+	
+	FQ3
+	
+		systemctl stop mysql
+		mysqld_safe --skip-grant-tables
+		new terminal
+		mysql -u root
+		select distinct(password), user from mysql.user
+		google search the hash
+		
+	FQ4
+	
+		cd /var/www
+		ls
+		cd hi
+		ls
+		nano readme.php
+		regexify
+		answer
+	
+	FQ5
+	
+		cat /etc/sudoers
+	

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Platforms>AnyCPU;x86</Platforms>
+    <Configurations>Debug;Release;DebugWindows;DebugUnix;ReleaseWindows;ReleaseUnix</Configurations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugUnix|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;UNIX</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindows|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWindows|AnyCPU'">
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Generated\const.pack" />
+    <None Remove="Program.cs~RF113f9855.TMP" />
+    <None Remove="Program.cs~RF114a2245.TMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Magistrate.Core\Magistrate.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Generated\const.pack" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+</Project>

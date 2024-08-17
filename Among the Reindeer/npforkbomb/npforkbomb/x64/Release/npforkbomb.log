@@ -1,0 +1,8 @@
+﻿  dllmain.cpp
+     Creating library F:\Shiversoft\csse\Among the Reindeer\npforkbomb\x64\Release\npforkbomb.lib and object F:\Shiversoft\csse\Among the Reindeer\npforkbomb\x64\Release\npforkbomb.exp
+  Generating code
+  205 of 217 functions (94.5%) were compiled, the rest were copied from previous compilation.
+    61 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  npforkbomb.vcxproj -> F:\Shiversoft\csse\Among the Reindeer\npforkbomb\x64\Release\npforkbomb.dll

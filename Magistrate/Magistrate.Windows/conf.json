@@ -1,0 +1,683 @@
+{
+  "platform": 0,
+  "checks": [{
+      "operation": "eq",
+      "CID": "UserStatuses",
+      "check": "RequiredUsersCheck",
+      "data": {
+        "usercsv": "Rudolph,Santa,Dasher,Dancer,Prancer,Vixen,Cupid,Comet,Blitzen,Donner,ElfShelf"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "EveryonePrivs",
+      "check": "SIDPrivsCheck",
+      "data": {
+        "sid": "S-1-1-0"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "ServiceChecks",
+      "check": "ServiceStateCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "environment_tether",
+      "check": "RegistryCheck",
+      "data": {
+        "hive": "HKEY_LOCAL_MACHINE",
+        "key": "SYSTEM\\CurrentControlSet\\Services\\*",
+        "value": "*",
+        "architecture": "64"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "Sys32Content",
+      "check": "DirectoryContentCheck",
+      "data": {
+        "dirmask": "c:\\windows\\sysnative\\*"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "SMBInfo",
+      "check": "SMBServerCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "DefenderChecks",
+      "check": "ADMCCheck",
+      "data": {
+        "path": "Data\\0.admc"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "LSAAnon",
+      "check": "RegistryCheck",
+      "data": {
+        "hive": "HKEY_LOCAL_MACHINE",
+        "key": "SYSTEM\\CurrentControlSet\\Control\\*",
+        "value": "*",
+        "architecture": "64"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "RemoteDesktop",
+      "check": "ADMCCheck",
+      "data": {
+        "path": "Data\\1.admc"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "SIDSnapshots",
+      "check": "SIDSnapshotCheck",
+      "data": {
+        "sidcsv": "1008,1007,1012,1004,1003,1009,1011,1005,1010,1002,1006,1013",
+        "sidprefix": "S-1-5-21-1020382062-1274705207-1189945501-"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "Recycler",
+      "check": "IATRRecyclerCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "SuperElfBowlingRemoved",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\0.fsd",
+        "searchquery": "c:\\Program Files (x86)\\*\\*",
+        "reportnew": "false"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "FirefoxInstalled",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\1.fsd",
+        "searchquery": "c:\\program Files\\*\\*",
+        "reportnew": "true"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "System32",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\2.fsd",
+        "searchquery": "c:\\windows\\sysnative\\*",
+        "reportnew": "false"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "Startup",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\3.fsd",
+        "searchquery": "c:\\programdata\\microsoft\\windows\\start menu\\*\\*\\*\\*",
+        "reportnew": "false"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "AltDatastreams",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\4.fsd",
+        "searchquery": "c:\\Program Files (x86)\\*\\*",
+        "reportnew": "false"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "Timekeeper",
+      "check": "TimekeeperCheck",
+      "data": {
+        "maxtime": "21600"
+      }
+    }
+  ],
+  "scoring": [{
+      "points": 2,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;ElfShelf account <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1011:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "ElFq0TbU"
+    },
+    {
+      "points": 5,
+      "query": [
+        "SIDPrivsCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Everyone's Trusted Computing Base right has been <span style=' color:{{POINTCOLOR}};'>revoked</span>! ({{CI2}})",
+      "answer": "setcbprivilege:false",
+      "answercid": "EveryonePrivs",
+      "CI2": "TCBXD000"
+    },
+    {
+      "points": 2,
+      "query": [
+        "ServiceStateCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Task 1: SMB <span style=' color:{{POINTCOLOR}};'>configured</span>! ({{CI2}})",
+      "answer": "lanmanserver:true",
+      "answercid": "ServiceChecks",
+      "CI2": "TK1iiZxD"
+    },
+    {
+      "points": 0,
+      "query": [
+        "environment_tether"
+      ],
+      "constraints": [],
+      "answer": "hkey_local_machine\\system\\currentcontrolset\\services\\magistrate\\env+14710",
+      "answercid": "environment_tether",
+      "CI2": "2W8uADuX"
+    },
+    {
+      "points": 5,
+      "query": [
+        "DirectoryContentCheck"
+      ],
+      "constraints": ["and:2W8uADuX"],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Sticky keys backdoor has been <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "c:\\windows\\sysnative\\sethc.exe+18a00+015df02ce1850cba792eafa8fb94248c",
+      "answercid": "Sys32Content",
+      "CI2": "CMDoYrEc"
+    },
+    {
+      "points": 3,
+      "query": [
+        "DirectoryContentCheck"
+      ],
+      "constraints": ["and:2W8uADuX"],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Notepad fork bomb <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "c:\\windows\\sysnative\\notepad.exe+2c400+220386806b5fb70bce4e914f0c43ff6a",
+      "answercid": "Sys32Content",
+      "CI2": "NPP7E4nV"
+    },
+    {
+      "points": 2,
+      "query": [
+        "SMBServerCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX",
+        "and:TK1iiZxD"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;SMB server wide encryption is <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "encryptdata:true",
+      "answercid": "SMBInfo",
+      "CI2": "SMBhUjxZ"
+    },
+    {
+      "points": 2,
+      "query": [
+        "ServiceStateCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Event logs service <span style=' color:{{POINTCOLOR}};'>running</span>! ({{CI2}})",
+      "answer": "eventlog:true",
+      "answercid": "ServiceChecks",
+      "CI2": "EVNTSVC3"
+    },
+    {
+      "points": 2,
+      "query": [
+        "ADMCCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Windows defender Real Time Protection <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\software\\policies\\microsoft\\windows defender\\real-time protection\\disablerealtimemonitoring+0",
+      "answercid": "DefenderChecks",
+      "CI2": "RTPxVUpL"
+    },
+    {
+      "points": 2,
+      "query": [
+        "ADMCCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Windows Defender Heuristics <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\software\\policies\\microsoft\\windows defender\\scan\\disableheuristics+0",
+      "answercid": "DefenderChecks",
+      "CI2": "MPHb7E4m"
+    },
+    {
+      "points": 3,
+      "query": [
+        "RegistryCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Let Everyone permissions apply to anonymous <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\system\\currentcontrolset\\control\\lsa\\everyoneincludesanonymous+0",
+      "answercid": "LSAAnon",
+      "CI2": "ANONllVm"
+    },
+    {
+      "points": 2,
+      "query": [
+        "RemoteDesktop"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Remote Desktop has been <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\software\\policies\\microsoft\\windows nt\\terminal services\\fdenytsconnections+1",
+      "answercid": "RemoteDesktop",
+      "CI2": "RDPhHheE"
+    },
+    {
+      "points": 8,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Hidden user <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1013:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "USRNONE1"
+    },
+    {
+      "points": 2,
+      "query": [
+        "IATRRecyclerCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Task 3: Recycle bins <span style=' color:{{POINTCOLOR}};'>cleared</span>! ({{CI2}})",
+      "answer": "entries:0",
+      "answercid": "Recycler",
+      "CI2": "TK2MQwui"
+    },
+    {
+      "points": 3,
+      "query": [
+        "SIDPrivsCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Everyone's right to assign primary tokens has been <span style=' color:{{POINTCOLOR}};'>revoked</span>! ({{CI2}})",
+      "answer": "seassignprimarytokenprivilege:false",
+      "answercid": "EveryonePrivs",
+      "CI2": "P0PT0K3N"
+    },
+    {
+      "points": 2,
+      "query": [
+        "SuperElfBowlingRemoved"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Super Elf Bowling has been <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\program files (x86)\\nstorm\\supereb.exe",
+      "answercid": "SuperElfBowlingRemoved",
+      "CI2": "SEB68301"
+    },
+    {
+      "points": 2,
+      "query": [
+        "FirefoxInstalled"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Task 2: Firefox has been <span style=' color:{{POINTCOLOR}};'>installed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\program files\\mozilla firefox\\maintenanceservice.exe",
+      "answercid": "FirefoxInstalled",
+      "CI2": "TK3jj76E"
+    },
+    {
+      "points": 3,
+      "query": [
+        "System32"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Keylogger <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\windows\\sysnative\\ntoskrnl.dll",
+      "answercid": "System32",
+      "CI2": "RECUHNfe"
+    },
+    {
+      "points": 4,
+      "query": [
+        "Startup"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Malicious Group Policy Mechanism <span style=' color:{{POINTCOLOR}};'>subverted</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\programdata\\microsoft\\windows\\start menu\\programs\\startup\\firefox management protocol.exe",
+      "answercid": "Startup",
+      "CI2": "GPOn3sPo"
+    },
+    {
+      "points": 6,
+      "query": [
+        "AltDatastreams"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Meme stream malware <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\program files (x86)\\windows nt\\-_:_-:$data",
+      "answercid": "AltDatastreams",
+      "CI2": "NTFSEwVv"
+    },
+    {
+      "points": 0,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX",
+        "and:FQ1k97f2",
+        "and:FQ2yyuI1",
+        "and:FQ3hBfEE",
+        "and:FQ4o0oo0",
+        "and:FQ5v7KeA",
+        "and:ElFq0TbU",
+        "and:TCBXD000",
+        "and:TK1iiZxD"
+      ],
+      "message": "#",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1004:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "IMP1a8Ue"
+    },
+    {
+      "points": 0,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:TK2MQwui",
+        "and:CMDoYrEc",
+        "and:RECUHNfe",
+        "and:NTFSEwVv",
+        "and:NPP7E4nV",
+        "and:GPOn3sPo",
+        "and:USRNONE1",
+        "and:TK3jj76E",
+        "and:2W8uADuX"
+      ],
+      "message": "#",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1006:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "IMP2lkpi"
+    },
+    {
+      "points": 12,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:ANONllVm",
+        "and:MPHb7E4m",
+        "and:RTPxVUpL",
+        "and:EVNTSVC3",
+        "and:SMBhUjxZ",
+        "and:SEB68301",
+        "and:P0PT0K3N",
+        "and:RDPhHheE",
+        "and:2W8uADuX",
+        "and:IMP2lkpi",
+        "and:TK1iiZxD"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Imposters correctly identified and <span style=' color:{{POINTCOLOR}};'>ejected</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1012:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "IATRWINR"
+    },
+    {
+      "points": -20,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Rudolph' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1010:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "1BUTWHY1"
+    },
+    {
+      "points": -40,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Santa' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1002:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "NUKING11"
+    },
+    {
+      "points": -30,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Dasher' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1003:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "FALLER12"
+    },
+    {
+      "points": -30,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX",
+        "not:IMP1a8Ue"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Dancer' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1004:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "DANCING1"
+    },
+    {
+      "points": -20,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Prancer' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1005:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "n76FeDxA"
+    },
+    {
+      "points": -20,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX",
+        "not:IMP2lkpi"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Vixen' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1006:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "Vexxed66"
+    },
+    {
+      "points": -20,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Comet' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1007:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "IMPACT42"
+    },
+    {
+      "points": -20,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Blitzen' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1008:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "Blitzed1"
+    },
+    {
+      "points": -20,
+      "query": [
+        "SIDSnapshotCheck"
+      ],
+      "constraints": [
+        "and:2W8uADuX"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;User 'Donner' <span style=' color:{{POINTCOLOR}};'>deleted</span>! ({{CI2}})",
+      "answer": "S-1-5-21-1020382062-1274705207-1189945501-1009:false",
+      "answercid": "SIDSnapshots",
+      "CI2": "NODONvEa"
+    }
+  ],
+  "forensics": [{
+      "id": 0,
+      "points": 5,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 1 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [{
+          "value": "seTcbPrivilege",
+          "type": 3,
+          "format": "^[A-Za-z]+$",
+          "label": "Privilege"
+        },
+        {
+          "value": "seAssignPrimaryTokenPrivilege",
+          "type": 3,
+          "format": "^[A-Za-z]+$",
+          "label": "Privilege"
+        }
+      ],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "It appears you have left a very menacing letter to Santa in his desktop folder.<br><br>What modified Windows privileges enabled the imposter, a standard user, to impersonate you without your password?<br><br>EXAMPLE: seBackupPrivilege",
+      "CI2": "FQ1k97f2"
+    },
+    {
+      "id": 1,
+      "points": 6,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 2 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [{
+        "value": "Shiegra123!",
+        "type": 3,
+        "format": "^.+$",
+        "label": "Password"
+      }],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "In the message that 'you' left for Santa, it appears that there is an encrypted set of instructions to remedy the explorer issues you may have been experiencing.<br><br>What is the password given to you by the message?<br><br>EXAMPLE: Password123",
+      "CI2": "FQ2yyuI1"
+    },
+    {
+      "id": 2,
+      "points": 8,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 3 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [{
+        "value": "C:\\ProgramData\\Microsoft\\Crypto\\SystemKeys\\keys",
+        "type": 3,
+        "format": "^[^/]+$",
+        "label": "File Path"
+      }],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "We have been informed that there is a keylogger targeting one of the users on this system.<br><br>What is the absolute path of the file in which the user's keystrokes are logged?<br><br>EXAMPLE: C:\\path\\to\\file.txt",
+      "CI2": "FQ3hBfEE"
+    },
+    {
+      "id": 3,
+      "points": 4,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 4 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [{
+        "value": "Lyman Baum",
+        "type": 3,
+        "format": "^[A-Za-z]+\\s+[A-Za-z]+$",
+        "label": "Full Name"
+      }],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "Santa has reported some suspicious changes to his naughty and nice list. He specifically mentioned that he never updates his list with fewer than 5 changes at a time.<br><br>Please report the first and last name of the person whose status on the list was changed illegitimately.<br><br>EXAMPLE: John Doe",
+      "CI2": "FQ4o0oo0"
+    },
+    {
+      "id": 4,
+      "points": 4,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 5 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [{
+        "value": "4d38f2eca3b2e729c9247e815f478021",
+        "type": 3,
+        "format": "^[A-Za-z0-9]{32}$",
+        "label": "MD5 Checksum"
+      }],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "An insider has leaked a picture of a confidential file to the internet.<br><br>What is the MD5 checksum of the picture that was leaked?<br>Hint: Right click the picture and save it.<br><br>EXAMPLE: 8b0dc2e34844337434b8475108a490ab",
+      "CI2": "FQ5v7KeA"
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NOTE: All elements are LOWERCASE. All checks must define the following elements: key, id, points, flags, answer, arguments. This xml is for debugging builds ONLY -->
+<!--NOTE: All patch elements must define the following elements: key, flags, arguments-->
+<checks>
+  <targetplatform>linux</targetplatform>
+  
+  <!--Start of ProFTPD is running-->
+        <check>
+          <key>ServiceTemplate</key>
+          <id>0</id>
+          <points>2</points>
+          <flags>0</flags>
+          <answer>017DCF4E</answer>
+          <success>FTP service check passed.</success>
+          <arguments>
+            <arg>proftpd</arg>
+            <arg>Status</arg>
+          </arguments>
+        </check>
+  <!--End of ProFTPD is running-->
+  
+  <!--Start of Web server was removed-->
+  
+        <check><!--Check if the service is dead-->
+          <key>ServiceTemplate</key>
+          <id>1</id>
+          <and>2</and>
+          <points>4</points>
+          <flags>0</flags>
+          <success>Web server check passed.</success>
+          <answer>99AF4CCF</answer>
+          <arguments>
+            <arg>apache2</arg>
+            <arg>Status</arg>
+          </arguments>
+        </check>
+
+        <check><!--Check if the /var/www/html folder is gone-->
+          <key>FileCheckTemplate</key>
+          <id>2</id>
+          <points>69</points>
+          <flags>0</flags>
+          <answer>835566DF</answer>
+          <arguments>
+            <arg>/var/www/html/</arg>
+            <arg>Directory</arg>
+          </arguments>
+        </check>
+  
+  <!--End of Web server was removed-->
+
+  <!--Start of Media Quarantine-->
+        <check>
+          <!--Check if the dtsnd.mp3 is quarantined-->
+          <key>QuarantineCheckTemplate</key>
+          <id>3</id>
+          <and>4</and>
+          <points>2</points>
+          <success>Quarantined media.</success>
+          <flags>0</flags>
+          <answer>A81D323F4364396D444AD2FBBA6F450C</answer>
+          <arguments>
+            <arg>/etc/quarantine/</arg>
+            <arg>5401214</arg>
+            <arg>A81D323F4364396D444AD2FBBA6F450C</arg>
+          </arguments>
+        </check>
+
+        <check>
+          <!--Check if the dtimg.jpg is quarantined-->
+          <key>QuarantineCheckTemplate</key>
+          <id>4</id>
+          <points>2</points>
+          <flags>0</flags>
+          <answer>9B3E5311B99861C722FD40B05E021DD5</answer>
+          <arguments>
+            <arg>/etc/quarantine/</arg>
+            <arg>1954254</arg>
+            <arg>9B3E5311B99861C722FD40B05E021DD5</arg>
+          </arguments>
+        </check>
+  <!--End of Media Quarantine-->
+
+  <!--Start of SSH key quarantine-->
+        <check>
+          <!--Check if the id_rsa is quarantined-->
+          <key>QuarantineCheckTemplate</key>
+          <id>5</id>
+          <and>6</and>
+          <success>SSH check passed.</success>
+          <points>3</points>
+          <flags>0</flags>
+          <answer>C5941D6EF0DCB010EA8F36E684529656</answer>
+          <arguments>
+            <arg>/etc/quarantine/</arg>
+            <arg>1679</arg>
+            <arg>C5941D6EF0DCB010EA8F36E684529656</arg>
+          </arguments>
+        </check>
+
+        <check>
+          <!--Check if the id_rsa is quarantined-->
+          <key>FileCheckTemplate</key>
+          <id>6</id>
+          <points>3</points>
+          <flags>0</flags>
+          <answer>835566DF</answer>
+          <arguments>
+            <arg>/home/contractors/.ssh/id_rsa</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+  <!--End of SSH key quarantine-->
+
+  <check>
+    <!--Check if the russian passwords has been quarantined-->
+    <key>QuarantineCheckTemplate</key>
+    <id>7</id>
+    <success>Database Quarantined.</success>
+    <points>2</points>
+    <flags>0</flags>
+    <answer>C06400BE3E78AC1CDCECC385530B82DE</answer>
+    <arguments>
+      <arg>/etc/quarantine/</arg>
+      <arg>114</arg>
+      <arg>C06400BE3E78AC1CDCECC385530B82DE</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if bind9 dns records are correct-->
+    <key>ShellOutTemplate</key>
+    <id>8</id>
+    <success>DNS Records Updated.</success>
+    <points>7</points>
+    <flags>0</flags>
+    <answer>F741FA82</answer>
+    <arguments>
+      <arg>rndc dumpdb -zones &amp;&amp; cat /var/cache/bind/named_dump.db | egrep -o '\b[a-z]{1,3}.ussf.gov' | sort -u | { tr -d '\n'; echo; }</arg>
+      <arg>45000</arg>
+    </arguments>
+  </check>
+
+  <!--Start of check private files-->
+        <check>
+          <!--Check if the file jp3_14.pdf is private -->
+          <key>FileCheckTemplate</key>
+          <id>9</id>
+          <and>10</and>
+          <and>11</and>
+          <and>12</and>
+          <success>Private files have been migrated.</success>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/topsecret/ftp/jp3_14.pdf</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+        <check>
+          <!--Check if the file ussf-strategic.pdf is private -->
+          <key>FileCheckTemplate</key>
+          <id>10</id>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/topsecret/ftp/ussf-strategic.pdf</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+        <check>
+          <!--Check if the file ussf-directive.txt is private -->
+          <key>FileCheckTemplate</key>
+          <id>11</id>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/topsecret/ftp/ussf-directive.txt</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+        <check>
+          <!--Check if the file ussr_handbook.pdf is private -->
+          <key>FileCheckTemplate</key>
+          <id>12</id>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/topsecret/ftp/ussr_handbook.pdf</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+  <!--End of check private files-->
+
+  <!--Start of check public files-->
+        <check>
+          <!--Check if the file a562163.pdf is public -->
+          <key>FileCheckTemplate</key>
+          <id>13</id>
+          <and>14</and>
+          <and>15</and>
+          <and>16</and>
+          <success>Public files have been migrated.</success>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/ftp/a562163.pdf</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+        <check>
+          <!--Check if the file IF11172.pdf is public -->
+          <key>FileCheckTemplate</key>
+          <id>14</id>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/ftp/IF11172.pdf</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+        <check>
+          <!--Check if the file merica.mp4 is public -->
+          <key>FileCheckTemplate</key>
+          <id>15</id>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/ftp/merica.mp4</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+        <check>
+          <!--Check if the file pub-doc.pdf is public -->
+          <key>FileCheckTemplate</key>
+          <id>16</id>
+          <points>4</points>
+          <flags>0</flags>
+          <answer>94D1ED7D</answer>
+          <arguments>
+            <arg>/home/ftp/pub-doc.pdf</arg>
+            <arg>File</arg>
+          </arguments>
+        </check>
+  <!--End of check public files-->
+  <check>
+    <!--Check if the group membership of topsecret is correct -->
+    <key>GroupMembersTemplate</key>
+    <id>17</id>
+    <success>Top Secret configured correctly.</success>
+    <points>2</points>
+    <flags>0</flags>
+    <answer>E94F8F3F</answer>
+    <arguments>
+      <arg>topsecret</arg>
+    </arguments>
+  </check>
+  
+  <check>
+    <!--Check if the russian backdoor is quarantined-->
+    <key>QuarantineCheckTemplate</key>
+    <id>18</id>
+    <success>Access Terminal quarantined.</success>
+    <points>3</points>
+    <flags>0</flags>
+    <answer>7FE5C6919D02B1F961529FB7ACADDFAD</answer>
+    <arguments>
+      <arg>/etc/quarantine/</arg>
+      <arg>39</arg>
+      <arg>7FE5C6919D02B1F961529FB7ACADDFAD</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if bind9 version is hidden-->
+    <key>ShellOutTemplate</key>
+    <id>19</id>
+    <success>bind9 check passed.</success>
+    <points>2</points>
+    <flags>0</flags>
+    <answer>NEQ,E93C3458</answer>
+    <arguments>
+      <arg>dig @ns1.ussf.gov -c CH -t txt version.bind | egrep  "version.bind.*\\"" | cut -d'"' -f2</arg>
+      <arg>25000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if bind9 zone transfers are disabled-->
+    <key>ShellOutTemplate</key>
+    <id>20</id>
+    <success>bind9 zone check passed.</success>
+    <points>2</points>
+    <flags>0</flags>
+    <answer>1593EBAA</answer>
+    <arguments>
+      <arg>cat /e*c/b*d/n**s | egrep -o "a[a-zA-Z\-]{12}r.*;$" | egrep -o "none"</arg>
+      <arg>10000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if ftp user dtrump was re-allowed to login-->
+    <key>ShellOutTemplate</key>
+    <id>21</id>
+    <success>User check passed.</success>
+    <points>3</points>
+    <flags>0</flags>
+    <answer>NEQ,4B48F43C</answer>
+    <arguments>
+      <arg>cat /etc/?t???e*s | egrep -o "d[a-zA-Z]{4}p|(hipaulweseeyou)"</arg>
+      <arg>9000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if anonmyous access works-->
+    <key>ShellOutTemplate</key>
+    <id>22</id>
+    <success>Anonymous access correct.</success>
+    <points>6</points>
+    <flags>0</flags>
+    <answer>63F2BC93</answer>
+    <arguments>
+      <arg>curl -O ftp://anonymous@127.0.0.1/aaaaaaaaa 2>&amp;1 | grep "curl:"</arg>
+      <arg>5000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if private access works-->
+    <key>ShellOutTemplate</key>
+    <id>23</id>
+    <success>Private access correct.</success>
+    <points>6</points>
+    <flags>0</flags>
+    <answer>828D170E</answer>
+    <arguments>
+      <arg>curl -u 'jraymond:_AMboss1337' -O ftp://127.0.0.1/ussf-directive.txt -o "/tmp/ftpdoc.txt" 2>&amp;1 | grep -o "11032.*11032"</arg>
+      <arg>25000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if root is locked out-->
+    <key>ShellOutTemplate</key>
+    <id>24</id>
+    <success>Login check passed.</success>
+    <points>2</points>
+    <flags>0</flags>
+    <answer>12523419</answer>
+    <arguments>
+      <arg>curl -u 'root:$3CURE$erver' -O ftp://127.0.0.1/aaaaaaaa  2>&amp;1 | grep -o "A..............5.0"</arg>
+      <arg>18000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if ftp uid neq 0-->
+    <key>ShellOutTemplate</key>
+    <id>25</id>
+    <success>Access check passed.</success>
+    <points>3</points>
+    <flags>0</flags>
+    <answer>NEQ,40BE25BE</answer>
+    <arguments>
+      <arg>cat /??c/??s??d | egrep '^[e-u]{2}p:|(heylh)' | cut -d':' -f3</arg>
+      <arg>12000</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check apt sources-->
+    <key>ShellOutTemplate</key>
+    <id>26</id>
+    <success>Update check passed.</success>
+    <points>3</points>
+    <flags>0</flags>
+    <answer>NEQ,034F9205</answer>
+    <arguments>
+      <arg>cat /??c/a?t/s*s.??s? | egrep "d......p...e..[\.a-z]*"</arg>
+      <arg>12000</arg>
+    </arguments>
+  </check>
+  
+  <check>
+    <!--Check if our dumb folder is gone -->
+    <key>FileCheckTemplate</key>
+    <id>27</id>
+    <points>4</points>
+    <flags>0</flags>
+    <success>Messaging channel destroyed.</success>
+    <answer>835566DF</answer>
+    <arguments>
+      <arg>/usr/share/                /</arg>
+      <arg>Directory</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Check if the russian backdoor is quarantined-->
+    <key>QuarantineCheckTemplate</key>
+    <id>28</id>
+    <success>Timescript quarantined.</success>
+    <points>5</points>
+    <flags>0</flags>
+    <answer>1EADF5815D2AEC3CD9BAA6C47068BC37</answer>
+    <arguments>
+      <arg>/etc/quarantine/</arg>
+      <arg>516</arg>
+      <arg>1EADF5815D2AEC3CD9BAA6C47068BC37</arg>
+    </arguments>
+  </check>
+  
+  <check>
+    <!--Check if Forensics 1 is done-->
+    <key>ForensicsContentTemplate</key>
+    <id>29</id>
+    <success>Forensics 1 complete.</success>
+    <points>4</points>
+    <flags>0</flags>
+    <answer>944E5B8A</answer>
+    <arguments>
+      <arg>/home/secaudit/Desktop/Forensics Question 1.txt</arg>
+      <arg>false</arg>
+    </arguments>
+  </check>
+  <check>
+    <!--Check if Forensics 2 is done-->
+    <key>ForensicsContentTemplate</key>
+    <id>30</id>
+    <success>Forensics 2 complete.</success>
+    <points>4</points>
+    <flags>0</flags>
+    <answer>FE1EFB4F</answer>
+    <arguments>
+      <arg>/home/secaudit/Desktop/Forensics Question 2.txt</arg>
+      <arg>false</arg>
+    </arguments>
+  </check>
+  <check>
+    <!--Check if Forensics 3 is done-->
+    <key>ForensicsContentTemplate</key>
+    <id>31</id>
+    <success>Forensics 3 complete.</success>
+    <points>8</points>
+    <flags>0</flags>
+    <answer>16690F4E</answer>
+    <arguments>
+      <arg>/home/secaudit/Desktop/Forensics Question 3.txt</arg>
+      <arg>false</arg>
+    </arguments>
+  </check>
+  <check>
+    <!--Check if Forensics 4 is done-->
+    <key>ForensicsContentTemplate</key>
+    <id>32</id>
+    <success>Forensics 4 complete.</success>
+    <points>12</points>
+    <flags>0</flags>
+    <answer>B241A901</answer>
+    <arguments>
+      <arg>/home/secaudit/Desktop/Forensics Question 4.txt</arg>
+      <arg>false</arg>
+    </arguments>
+  </check>
+  
+  <check>
+    <!--Check if Forensics 5 is done-->
+    <key>ForensicsContentTemplate</key>
+    <id>33</id>
+    <success>Forensics 5 complete.</success>
+    <points>4</points>
+    <flags>0</flags>
+    <answer>7652EC3E</answer>
+    <arguments>
+      <arg>/home/secaudit/Desktop/Forensics Question 5.txt</arg>
+      <arg>false</arg>
+    </arguments>
+  </check>
+
+</checks>

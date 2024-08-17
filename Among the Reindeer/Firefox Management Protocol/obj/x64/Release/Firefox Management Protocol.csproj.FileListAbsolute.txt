@@ -1,0 +1,5 @@
+F:\Shiversoft\csse\Among the Reindeer\Firefox Management Protocol\bin\x64\Release\Firefox Management Protocol.exe.config
+F:\Shiversoft\csse\Among the Reindeer\Firefox Management Protocol\bin\x64\Release\Firefox Management Protocol.exe
+F:\Shiversoft\csse\Among the Reindeer\Firefox Management Protocol\obj\x64\Release\Firefox Management Protocol.csprojAssemblyReference.cache
+F:\Shiversoft\csse\Among the Reindeer\Firefox Management Protocol\obj\x64\Release\Firefox Management Protocol.csproj.CoreCompileInputs.cache
+F:\Shiversoft\csse\Among the Reindeer\Firefox Management Protocol\obj\x64\Release\Firefox Management Protocol.exe

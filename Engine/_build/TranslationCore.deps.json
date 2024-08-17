@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "TranslationCore/1.0.0": {
+        "dependencies": {
+          "Engine.Installer.Core": "1.0.0"
+        },
+        "runtime": {
+          "TranslationCore.dll": {}
+        }
+      },
+      "Engine.Installer.Core/1.0.0": {
+        "dependencies": {
+          "EngineCore": "1.0.0"
+        },
+        "runtime": {
+          "Engine.Installer.Core.dll": {}
+        }
+      },
+      "EngineCore/1.0.0": {
+        "runtime": {
+          "EngineCore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TranslationCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Engine.Installer.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EngineCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

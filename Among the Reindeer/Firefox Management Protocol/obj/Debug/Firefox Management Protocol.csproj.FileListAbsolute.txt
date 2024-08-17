@@ -1,0 +1,7 @@
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\bin\Debug\Firefox Management Protocol.exe.config
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\bin\Debug\Firefox Management Protocol.exe
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\bin\Debug\Firefox Management Protocol.pdb
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\obj\Debug\Firefox Management Protocol.csprojAssemblyReference.cache
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\obj\Debug\Firefox Management Protocol.csproj.CoreCompileInputs.cache
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\obj\Debug\Firefox Management Protocol.exe
+C:\Users\Landon Byrge\source\repos\Firefox Management Protocol\Firefox Management Protocol\obj\Debug\Firefox Management Protocol.pdb

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Configurations>Debug;Release;DebugOffline;DebugOnline</Configurations>
+    <LangVersion>7.3</LangVersion>
+    <ApplicationIcon />
+    <StartupObject>LinuxEngine.LinEngine</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOnline|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOffline|AnyCPU'">
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ScoringReport.desktop" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ScoringReport.desktop" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EngineCore\EngineCore.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /y $(SolutionDir)_build\Engine.cs $(ProjectDir)Engine.cs&#xD;&#xA;if $(ConfigurationName) == DebugOffline dotnet $(SolutionDir)_build\TranslationCore.dll /e $(ProjectDir)Engine.cs $(SolutionDir)_build\LinuxTranslated $(SolutionDir)_build\_lin_debugchecks.xml&#xD;&#xA;if $(ConfigurationName) == Release dotnet $(SolutionDir)_build\TranslationCore.dll /rb linux $(ProjectDir)Engine.cs $(SolutionDir)_build\LinuxTranslated $(SolutionDir)_build\_install.bin" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp $(SolutionDir)_build/Engine.cs $(ProjectDir)Engine.cs; if [ &quot;$(ConfigurationName)&quot; = &quot;DebugOffline&quot; ]; then&#xA;sudo dotnet $(SolutionDir)_build/TranslationCore.dll /e $(ProjectDir)Engine.cs $(SolutionDir)_build/LinuxTranslated $(SolutionDir)_build/_lin_debugchecks.xml&#xA;fi&#xA;if [ &quot;$(ConfigurationName)&quot; = &quot;Release&quot; ]; then&#xA;sudo dotnet $(SolutionDir)_build/TranslationCore.dll /rb linux $(ProjectDir)Engine.cs $(SolutionDir)_build/LinuxTranslated $(SolutionDir)_build/_install.bin&#xA;fi&#xA;" />
+  </Target>
+
+</Project>

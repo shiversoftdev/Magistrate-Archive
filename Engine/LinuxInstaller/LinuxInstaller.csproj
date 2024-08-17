@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Configurations>Debug;Release;DebugOffline;DebugOnline</Configurations>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOnline|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOffline|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;OFFLINE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InstallerCore\InstallerCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\" />
+	<Content Include="Templates\**\*.cst">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Install-DEB.sh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="noinstall.lck">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Testing\install.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="echo D|xcopy /s /y $(ProjectDir)Templates $(ProjectDir)$(OutDir)Templates&#xD;&#xA;copy /y $(SolutionDir)_build\srpview.dll $(ProjectDir)$(OutDir)srpview.dll" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp -a $(ProjectDir)Templates/. $(ProjectDir)$(OutDir)Templates&#xD;&#xA;" />
+  </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="dotnet $(SolutionDir)_build\TranslationCore.dll /t $(SolutionDir)_build\LinuxTemplates $(ProjectDir)\Templates&#xD;&#xA;echo D|xcopy /s /y $(SolutionDir)_build\LinuxTranslated $(ProjectDir)Templates&#xD;&#xA;if $(ConfigurationName)==DebugOffline (dotnet $(SolutionDir)_build\TranslationCore.dll /i $(SolutionDir)_build\_lin_debugchecks.xml $(ProjectDir)Testing\install.bin)&#xD;&#xA;" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo dotnet $(SolutionDir)_build/TranslationCore.dll /t $(SolutionDir)_build/LinuxTemplates $(ProjectDir)/Templates; sudo cp -a $(SolutionDir)_build/LinuxTranslated/. $(ProjectDir)Templates; if [ &quot;$(ConfigurationName)&quot; = &quot;DebugOffline&quot; ]; then&#xA;sudo dotnet $(SolutionDir)_build/TranslationCore.dll /i $(SolutionDir)_build/_lin_debugchecks.xml $(ProjectDir)Testing/install.bin&#xA;fi&#xA;" />
+  </Target>
+
+</Project>

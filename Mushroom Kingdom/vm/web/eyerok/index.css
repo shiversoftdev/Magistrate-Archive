@@ -1,0 +1,133 @@
+body {
+    background-color: red;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-position: -220px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+.testimonial {
+    width: 25%;
+    height: 100%;
+    margin-left: 4%;
+    margin-right: 4%;
+    border: 3px solid #ffa43d;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.userimg {
+    border-right: 3px solid red;
+    border-bottom: 3px solid red;
+}
+
+.userpane {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: 2;
+    margin: 10px;
+    width: 30%;
+    height: 100%;
+    min-width: min-content;
+    min-height: min-content;
+    background-color: pink;
+    border: 2px solid red;
+}
+
+.topcontent {
+    background-image: url("../img/mks-banner.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    height: 15%;
+    right: 15%;
+    left: 15%;
+    overflow-x: hidden;
+}
+
+.centercontent {
+    background-color: #e2ce8d;
+    position: fixed;
+    z-index: 1;
+    top: 15%;
+    right: 15%;
+    left: 15%;
+    bottom: 5%;
+    min-width: 750px;
+    min-height: 750px;
+    padding-top: 20px;
+}
+
+.leftwhite {
+    background-color: white;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.rightwhite {
+    background-color: white;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.bottom {
+    background-color: #b80808;
+    position: fixed;
+    z-index: 1;
+    left: 15%;
+    right: 15%;
+    height: 5%;
+    bottom: 0;
+    overflow-x: hidden;
+    text-align: center;
+    font-size: xx-large;
+    color: white;
+}
+
+.username {
+    font-size: xx-large;
+    float: none;
+    margin-left: 10%;
+}
+
+.sellerdescription {
+    float: none;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: hidden;
+    max-height: 30%;
+}
+
+.buynow {
+    align-self: center;
+    margin-left: 35%;
+    margin-right: 35%;
+}

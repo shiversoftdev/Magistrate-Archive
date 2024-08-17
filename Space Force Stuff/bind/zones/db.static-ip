@@ -1,0 +1,17 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	ussf.gov. root.ussf.gov. (
+			      5		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+	IN	NS	ns1.ussf.gov
+ns1.ussf.gov	IN	A	192.168.10.111 ; DEVELOPER NOTE: DO NOT EDIT THIS LINE
+111	IN	PTR	ftp.ussf.gov
+111	IN	PTR	ns1.ussf.gov
+111	IN	PTR	www.ussf.gov
+111 IN	PTR	docs.ussf.gov

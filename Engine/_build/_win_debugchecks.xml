@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NOTE: All elements are LOWERCASE. All checks must define the following elements: key, id, points, flags, answer, arguments. This xml is for debugging builds ONLY -->
+<!--NOTE: All patch elements must define the following elements: key, flags, arguments-->
+<checks>
+  <targetplatform>windows</targetplatform>
+  <imagename>Santa&apos;s Workshop Laptop</imagename>
+  
+  <!--Start of RegTest1-->
+  
+  <check><!--Award points if Reg key is set to 1 OR check 1 is valid-->
+    <key>RegTemplate</key>
+    <id>0</id>
+    <or>1</or>
+    <points>5</points>
+    <flags>0</flags>
+    <answer>08FEC303</answer>
+    <arguments>
+      <arg>HKEY_LOCAL_MACHINE</arg>
+      <arg>Software\CSSETest</arg>
+      <arg>RegTest</arg>
+      <arg>64</arg>
+    </arguments>
+  </check>
+
+  <check>
+    <!--Award points if Reg key is set to 2-->
+    <key>RegTemplate</key>
+    <id>1</id>
+    <points>5</points>
+    <flags>0</flags>
+    <answer>E57B7D92</answer>
+    <arguments>
+      <arg>HKEY_LOCAL_MACHINE</arg>
+      <arg>Software\CSSETest</arg>
+      <arg>RegTest</arg>
+      <arg>64</arg>
+    </arguments>
+  </check>
+  
+  <!--End of RegTest1-->
+
+</checks>

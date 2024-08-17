@@ -1,0 +1,16 @@
+Forensics Question 4
+
+    - Please place your answer on the line marked ANSWER:
+    - Do not add leading or trailing non-whitespace characters
+
+During your security audit, a member on your team pointed out a suspicious php file in the root of the web server. 
+Because the contents of the file have been obscured, your team has decided to analyze it further. When using this php script through a browser, you are prompted to enter a password to execute it's underlying code. 
+
+However, the password seems to be hardcoded into the php file itself. 
+
+What is the password required to execute the code?
+
+Example: acorn1
+
+
+ANSWER: h4il_St4l1n

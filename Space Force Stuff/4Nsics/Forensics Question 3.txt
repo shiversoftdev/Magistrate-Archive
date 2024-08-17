@@ -1,0 +1,13 @@
+Forensics Question 3
+
+    - Please place your answer on the line marked ANSWER:
+    - Do not add leading or trailing non-whitespace characters
+
+The SQL server installed on this system has a weak root password.
+
+Please identify and list it below.
+
+Example: acorn1
+
+
+ANSWER: toor

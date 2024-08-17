@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x86</Platforms>
+    <Configurations>Debug;Release;DebugWindows;DebugUnix;ReleaseWindows;ReleaseUnix</Configurations>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugUnix|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;DEBUG;UNIX</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindows|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;DEBUG;WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugUnix|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindows|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <FileAlignment>1024</FileAlignment>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseUnix|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <FileAlignment>1024</FileAlignment>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWindows|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <FileAlignment>1024</FileAlignment>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseUnix|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWindows|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Unix|AnyCPU'">
+    <DefineConstants>TRACE;UNIX</DefineConstants>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if /i &quot;$(ConfigurationName)&quot; EQU &quot;Debug&quot; goto buildwin&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;DebugWindows&quot; goto buildwin&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;Release&quot; goto buildwin&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;ReleaseWindows&quot; goto buildwin&#xD;&#xA;goto testunix&#xD;&#xA;&#xD;&#xA;:buildwin&#xD;&#xA;&quot;$(SolutionDir)Magistrate.BuildTools\bin\$(ConfigurationName)\Magistrate.BuildTools.exe&quot; &quot;$(SolutionDir)Magistrate.BuildTools\data\manifest.json&quot; --build &quot;$(SolutionDir)Magistrate.Windows&quot; Magistrate.Windows&#xD;&#xA;&#xD;&#xA;:testunix&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;Debug&quot; goto buildunix&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;DebugUnix&quot; goto buildunix&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;Release&quot; goto buildunix&#xD;&#xA;if /i &quot;$(ConfigurationName)&quot; EQU &quot;ReleaseUnix&quot; goto buildunix&#xD;&#xA;goto end&#xD;&#xA;&#xD;&#xA;:buildunix&#xD;&#xA;&quot;$(SolutionDir)Magistrate.BuildTools\bin\$(ConfigurationName)\Magistrate.BuildTools.exe&quot; &quot;$(SolutionDir)Magistrate.BuildTools\data\manifest.json&quot; --build &quot;$(SolutionDir)Magistrate.Unix&quot; Magistrate.Unix&#xD;&#xA;&#xD;&#xA;:end" />
+  </Target>
+
+</Project>

@@ -1,0 +1,10 @@
+﻿  dllmain.cpp
+F:\Shiversoft\csse\Among the Reindeer\fixthelights\fixthelights\dllmain.cpp(28,5): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Shiversoft\csse\Among the Reindeer\fixthelights\fixthelights\dllmain.cpp(35,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+     Creating library F:\Shiversoft\csse\Among the Reindeer\fixthelights\x64\Release\fixthelights.lib and object F:\Shiversoft\csse\Among the Reindeer\fixthelights\x64\Release\fixthelights.exp
+  Generating code
+  6 of 35 functions (17.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  fixthelights.vcxproj -> F:\Shiversoft\csse\Among the Reindeer\fixthelights\x64\Release\fixthelights.dll

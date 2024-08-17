@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/vm">
+        <file>snd/iatr_ambience.wav</file>
+        <file>snd/iatr_menus.wav</file>
+        <file>snd/iatr_select.wav</file>
+        <file>snd/iatr-warning.wav</file>
+        <file>snd/iatr-pointgain.wav</file>
+        <file>snd/iatr-uisuccess.wav</file>
+        <file>snd/iatr-pointloss.wav</file>
+        <file>snd/iatr-readme.wav</file>
+        <file>snd/iatr-winner.wav</file>
+    </qresource>
+</RCC>

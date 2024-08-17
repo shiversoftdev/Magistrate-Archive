@@ -1,0 +1,305 @@
+{
+  "magistrate": "manifest",
+  "moduledef": [
+    {
+      "name": "RegistryModule",
+      "args": [ "hive", "key", "value", "architecture" ]
+    },
+    {
+      "name": "FileNotExistsModule",
+      "args": [ "filepath" ]
+    },
+    {
+      "name": "ForensicsModule",
+      "args": [ "id", "flags" ]
+    },
+    {
+      "name": "SMBServerModule",
+      "args": []
+    },
+    {
+      "name": "ADAuthModule",
+      "args": [ "server", "username", "password" ]
+    },
+    {
+      "name": "ADDSHeuristicsModule",
+      "args": [ "searchbase" ]
+    },
+    {
+      "name": "ADUACModule",
+      "args": [ "searchbase" ]
+    },
+    {
+      "name": "DSACLSModule",
+      "args": [ "searchbase" ]
+    },
+    {
+      "name": "ADGMChecksumModule",
+      "args": [ "searchbase" ]
+    },
+    {
+      "name": "FSDModule",
+      "args": [ "fsdpath", "searchquery", "reportnew" ]
+    },
+    {
+      "name": "WSManStatModule",
+      "args": []
+    },
+    {
+      "name": "ADOUUsersModule",
+      "args": [ "searchbase" ]
+    },
+    {
+      "name": "SecEditModule",
+      "args": []
+    },
+    {
+      "name": "IISConfigModule",
+      "args": [ "root", "props" ]
+    },
+    {
+      "name": "SSLContentModule",
+      "args": [ "contentpath" ]
+    },
+    {
+      "name": "SIDPrivsModule",
+      "args": [ "sid" ]
+    },
+    {
+      "name": "TCPRedTeamModule",
+      "args": [ "commandline", "ip", "port" ]
+    },
+    {
+      "name": "MSSQLLASModule",
+      "args": []
+    },
+    {
+      "name": "MSSQLPermsModule",
+      "args": [ "usercsv" ]
+    },
+    {
+      "name": "MSSQLSAMModule",
+      "args": []
+    },
+    {
+      "name": "RequiredUsersModule",
+      "args": [ "usercsv" ]
+    },
+    {
+      "name": "CriticalServiceStateModule",
+      "args": [ "servicecsv" ]
+    },
+    {
+      "name": "DevModule",
+      "args": []
+    },
+    {
+      "name": "ServiceStateModule",
+      "args": []
+    },
+    {
+      "name": "DirectoryContentModule",
+      "args": [ "dirmask" ]
+    },
+    {
+      "name": "ADMCModule",
+      "args": [ "path" ]
+    },
+    {
+      "name": "SIDSnapshotModule",
+      "args": [ "sidcsv", "sidprefix" ]
+    },
+    {
+      "name": "IATRRecyclerModule",
+      "args": []
+    },
+    {
+      "name": "TimekeeperModule",
+      "args": [ "maxtime" ]
+    }
+  ],
+  "checkdef": [
+    {
+      "name": "RegistryCheck",
+      "module": "RegistryModule",
+      "operators": [ "gte", "gt", "lt", "lte", "eq", "in" ],
+      "random": [
+        {
+          "hive": "HKLM",
+          "key": "SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x64\\sdk",
+          "value": "*",
+          "architecture": "32",
+          "operator": "eq"
+        }
+      ]
+    },
+    {
+      "name": "FileNotExistsCheck",
+      "module": "FileNotExistsModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ForensicsCheck",
+      "module": "ForensicsModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "SMBServerCheck",
+      "module": "SMBServerModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ADAuthCheck",
+      "module": "ADAuthModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ADDSHeuristicsCheck",
+      "module": "ADDSHeuristicsModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ADUACCheck",
+      "module": "ADUACModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "DSACLSCheck",
+      "module": "DSACLSModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ADGMChecksumCheck",
+      "module": "ADGMChecksumModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "FSDCheck",
+      "module": "FSDModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "WSManStatCheck",
+      "module": "WSManStatModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ADOUUsersCheck",
+      "module": "ADOUUsersModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "SecEditCheck",
+      "module": "SecEditModule",
+      "operators": [ "gte", "gt", "lt", "lte", "eq", "in" ],
+      "random": []
+    },
+    {
+      "name": "IISConfigCheck",
+      "module": "IISConfigModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "SSLContentCheck",
+      "module": "SSLContentModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "SIDPrivsCheck",
+      "module": "SIDPrivsModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "TCPRedTeamCheck",
+      "module": "TCPRedTeamModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "MSSQLLASCheck",
+      "module": "MSSQLLASModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "MSSQLPermsCheck",
+      "module": "MSSQLPermsModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "MSSQLSAMCheck",
+      "module": "MSSQLSAMModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "RequiredUsersCheck",
+      "module": "RequiredUsersModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "CriticalServiceStateCheck",
+      "module": "CriticalServiceStateModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "DevCheck",
+      "module": "DevModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ServiceStateCheck",
+      "module": "ServiceStateModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "DirectoryContentCheck",
+      "module": "DirectoryContentModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "ADMCCheck",
+      "module": "ADMCModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "SIDSnapshotCheck",
+      "module": "SIDSnapshotModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "IATRRecyclerCheck",
+      "module": "IATRRecyclerModule",
+      "operators": [ "eq" ],
+      "random": []
+    },
+    {
+      "name": "TimekeeperCheck",
+      "module": "TimekeeperModule",
+      "operators": [ "eq" ],
+      "random": []
+    }
+  ]
+}

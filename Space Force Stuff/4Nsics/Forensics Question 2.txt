@@ -1,0 +1,16 @@
+Forensics Question 2
+
+    - Please place your answer on the line marked ANSWER:
+    - Do not add leading or trailing non-whitespace characters
+
+Network traffic was identified that suggested a hidden messages directory somewhere on this server.
+Please report the date of the last message sent, and purge this folder from the system. 
+
+Do not quarantine this folder, as we are worried it may be a trigger for a malicious actor.
+
+Please give your answer in the following format (24 hour time): YYYY-MM-DD HH:MM:SS
+
+EXAMPLE ANSWER: 2015-06-12 16:09:22
+
+
+ANSWER: 2019-12-20 16:48:31

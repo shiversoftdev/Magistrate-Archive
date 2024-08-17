@@ -1,0 +1,22 @@
+﻿Forensics Question 1
+
+    - Please place your answer on the line marked ANSWER:
+    - Do not add leading or trailing non-whitespace characters
+    - If you need to type more than one answer, place each answer on a new line, prefixed by ANSWER:
+
+The malicious actors involved with this system have created a systemm to wipe the modified dates of certain directories on boot.
+
+Please list each of the affected directories.
+
+Note: You do not need to list the subdirectories or files affected.
+
+EXAMPLE ANSWER: /var/log/
+
+Please remember to add the trailing slash.
+
+EXAMPLE INCORRECT ANSWER FORMAT: /var/log
+
+
+ANSWER: /etc/
+ANSWER: /usr/share/
+ANSWER: /home/

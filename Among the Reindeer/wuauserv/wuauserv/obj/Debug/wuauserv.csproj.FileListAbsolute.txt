@@ -1,0 +1,9 @@
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\bin\Debug\wuauserv.exe.config
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\bin\Debug\wuauserv.exe
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\bin\Debug\wuauserv.pdb
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\obj\Debug\wuauserv.csprojAssemblyReference.cache
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\obj\Debug\wuauserv.ProjectInstaller.resources
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\obj\Debug\wuauserv.csproj.GenerateResource.cache
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\obj\Debug\wuauserv.csproj.CoreCompileInputs.cache
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\obj\Debug\wuauserv.exe
+F:\Shiversoft\csse\Among the Reindeer\wuauserv\wuauserv\obj\Debug\wuauserv.pdb

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="debugchecks.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="debugchecks.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EngineCore\EngineCore.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /y $(SolutionDir)_build\CheckTemplate.cs $(ProjectDir)Templates\CheckTemplate.cs&#xD;&#xA;&#xD;&#xA;" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp $(SolutionDir)_build/CheckTemplate.cs $(ProjectDir)Templates/CheckTemplate.cs&#xA;&#xA;" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;$(ProjectDir)debugchecks.xml&quot; &quot;$(SolutionDir)_build\_lin_debugchecks.xml&quot;&#xD;&#xA;echo D|xcopy /s /y $(ProjectDir)Templates $(SolutionDir)_build\LinuxTemplates&#xD;&#xA;dotnet $(SolutionDir)_build\TranslationCore.dll /t $(SolutionDir)_build\LinuxTemplates $(SolutionDir)_build\LinuxTranslated" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp &quot;$(ProjectDir)debugchecks.xml&quot; &quot;$(SolutionDir)_build/_lin_debugchecks.xml&quot;&#xA;sudo cp -a $(ProjectDir)Templates/. $(SolutionDir)_build/LinuxTemplates&#xA;sudo dotnet $(SolutionDir)_build/TranslationCore.dll /t $(SolutionDir)_build/LinuxTemplates $(SolutionDir)_build/LinuxTranslated" />
+  </Target>
+
+</Project>

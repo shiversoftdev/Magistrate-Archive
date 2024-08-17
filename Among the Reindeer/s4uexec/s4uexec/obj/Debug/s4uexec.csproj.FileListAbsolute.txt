@@ -1,0 +1,7 @@
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\bin\Debug\s4uexec.exe.config
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\bin\Debug\s4uexec.exe
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\bin\Debug\s4uexec.pdb
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\obj\Debug\s4uexec.csprojAssemblyReference.cache
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\obj\Debug\s4uexec.csproj.CoreCompileInputs.cache
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\obj\Debug\s4uexec.exe
+F:\Shiversoft\csse\Among the Reindeer\s4uexec\s4uexec\obj\Debug\s4uexec.pdb

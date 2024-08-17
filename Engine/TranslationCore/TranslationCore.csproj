@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <StartupObject>TranslationCore.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InstallerCore\InstallerCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TranslationCore.runtimeconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="echo D|xcopy /s /y $(ProjectDir)$(OutDir)*.* $(SolutionDir)_build\" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp -a $(ProjectDir)$(OutDir). $(SolutionDir)_build" />
+  </Target>
+  
+</Project>

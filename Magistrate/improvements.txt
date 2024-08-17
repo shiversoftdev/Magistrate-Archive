@@ -1,0 +1,13 @@
+Magistrate Engine Improvements Todo:
+
+	change string literals for and/or/etc to use hashes or random constants
+	change string literals for "eq" etc to use hashes or random constants
+	add hash requirements that must be met before attempting decryption -- ie: first 2 bytes must be 0x418F
+		- This will *significantly* increase engine performance
+	
+Engine Todo list:
+
+	- Integrate server authentication/identity persistence
+	- Integrate api calls
+	- Integrate timekeeper/data persistence system
+	- Fix forensics combination answers to use alphabetical order

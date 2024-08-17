@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Engine.Installer.Core</AssemblyName>
+    <RootNamespace>Engine.Installer.Core</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+    <Configurations>Debug;Release;DebugOffline;DebugOnline</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOnline|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOffline|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;OFFLINE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="build.js" />
+    <None Remove="CheckDefinition.cs~RF146b99bf.TMP" />
+    <None Remove="CheckDefinition.cs~RF147105bf.TMP" />
+    <None Remove="CheckDefinition.cs~RF14750955.TMP" />
+    <None Remove="CheckDefinition.cs~RF147e1272.TMP" />
+    <None Remove="CheckDefinitions.cs~RF1422aa8b.TMP" />
+    <None Remove="CheckPreWrapper.cs~RF25b0ea7f.TMP" />
+    <None Remove="CheckPreWrapper.cs~RF25b902b3.TMP" />
+    <None Remove="CheckTemplate.cs~RF13931ce8.TMP" />
+    <None Remove="CheckTemplate.cs~RF139510f8.TMP" />
+    <None Remove="CheckTemplate.cs~RF1a4121cd.TMP" />
+    <None Remove="CheckTemplate.cs~RF406eec51.TMP" />
+    <None Remove="CheckTypes.cs~RF1a2a654e.TMP" />
+    <None Remove="CSTemplate.cs~RF1ae03b1c.TMP" />
+    <None Remove="CSTemplate.cs~RF1ae0f341.TMP" />
+    <None Remove="CSTemplate.cs~RF1ae4b848.TMP" />
+    <None Remove="CSTemplate.cs~RF1ae6db18.TMP" />
+    <None Remove="score-report.zip" />
+    <None Remove="TemplateRegistry.cs~RF19aa1901.TMP" />
+    <None Remove="TemplateRegistry.cs~RF1a2fb23d.TMP" />
+    <None Remove="TemplateRegistry.cs~RF1a392493.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="score-report.zip" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EngineCore\EngineCore.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /y $(ProjectDir)CheckTemplate.cs $(SolutionDir)_build\CheckTemplate.cs" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp $(ProjectDir)CheckTemplate.cs $(SolutionDir)_build/CheckTemplate.cs" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /y $(ProjectDir)$(OutDir)$(TargetFileName) $(SolutionDir)_build\$(TargetFileName)" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp $(ProjectDir)$(OutDir)$(TargetFileName) $(SolutionDir)_build/$(TargetFileName)" />
+  </Target>
+
+</Project>

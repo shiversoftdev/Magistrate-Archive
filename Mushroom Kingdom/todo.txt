@@ -1,0 +1,115 @@
+TODO:
+	
+	userassist 
+	https://www.sans.org/security-resources/posters/windows-forensics-evidence-of/75/download
+	https://blog.didierstevens.com/programs/userassist/
+	
+	# so basically add another adapter, try to use nat and restart the computer
+	# if that doesn't work, switch the adapter to bridged and manually set the ip address
+	# also disable the first adapter in control panel
+	
+	# I would also add in the readme that toad wasnt able to manage the DNS but it seems to still function
+
+	+ delete C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine
+	
+	+ Clear temp files
+	
+	+ Update HELP file.
+	
+	+ Copy new engine
+	+ Copy new client
+	
+	+ Restart magistrate on failure
+		- https://serverfault.com/questions/48600/how-can-i-automatically-restart-a-windows-service-if-it-crashes#:~:text=Open%20Services.,restart%20the%20service%20upon%20failure.
+
+	+ Shellbags and Recyclebin
+	
+	- Fix mimimize bug
+	
+	+ Add error handling for the engine
+		+ Maintain issue handled.
+	
+	+ Add scoring procedure for checking users in the OU
+	+ Make vertical size of scoring report window bigger.
+	+ Adjust forensics interface to occupy a fixed percent of the interface space available
+	+ Add a clarification to FRQ4 to remove '0x'
+	+ Add a font scale adjuster, and a font changer.
+		+ Step 1 complete, where fonts use a global GetFont.
+		+ Step 2 is to bind all these objects to update their font from a signal. Should be incredibly easy.
+		+ Step 3 is to allow a font family change, for the main fonts.
+		+ Step 4 is a simple font scale slider for the global scalar
+		+ Step 5 is saving user prefs to 'PREFS'
+		
+	+ Add the option to copy the scoring report to clipboard
+	+ Add a draggable forensics question window.
+	+ Fix the issue where resizing breaks the hud.
+	+ Adjust user deleted check to not fire if dns is down, since LDAP isnt queryable.
+	- Add dynamic scaling to the engine tickrate, and reduce from every 5 seconds.
+		> Maybe add a delay between each check if necessary, or something along those lines. async distribution.
+		+ Temporarily reduced release tickrate to 15 seconds.
+	
+
+	-* Add volume control to client
+	-* Add a notification that fires when the client detects the engine as being down (win/linux)
+	- Make a cross platform singleton code in QT. Current is win only (uses tasklist).
+	
+	+ Compress Disk
+	+ OBFUSCATE LMFAO
+
+	+ Patch Engine
+	+ Patch task cwd
+	+ Engine: change write acls for PCI
+	+ Add control server 
+
+	+ Add number of vulns to scoring report
+	+ Fix window loading time with audio
+	+ Add readme to server and fix link in scoring report
+	+ Fix client input command reading
+	
+	
+	+ Add the root of the IT interns OU to the readme (it must be under root)
+	+ Add peach's request for getting https running
+	+ Add donotdelete.txt to web data
+	+ Add help.txt to desktop
+	+ 50% volume default on image.
+	+ Install scoring engine
+	+ Register magistrate as service on image
+	
+	+ Redteam
+	+ Kill defender
+	+ Restore netcat
+	+ set NAT for vm network settings
+	+ Create service code for engine release build
+	+ Create task to restore the magistratehud when dead
+	+ Create singleton code for magistratehud
+
+	Attack Prep:
+	
+		+ Get mimikatz dll built
+		
+		RIGHT BEFORE STARTING:
+			+ Add https rule to firewall via luigi
+			+ Install Verisign cert.
+			+ Clear Internet History
+			+ Close GP objects in GPMC
+			+ Clear Powershell History
+			+ Clear internet temp folder
+			+ Clear all recycle bins
+			+ Clear VMWare temp
+			+ Clear Recent Locations
+			+ Clear Shellbags
+			+ Flush DNS
+			+ Flush ARP
+			+ Pin sql manager to desktop of mario
+			+ Enable ps transcription (via lgpo)
+			
+			+ Add reg key HKLM\System\currentcontrolset\Services\Magistrate:env 82020 (REMEMBER TO CHANGE TO DECIMAL)
+			
+			
+		During Attack:
+		
+			
+		After Attack:
+		
+			+ As luigi -- Delete bowser's account
+			+ Get SID of bowser and add to engine question

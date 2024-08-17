@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <Configurations>Debug;Release;DebugOffline;DebugOnline</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOnline|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOffline|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;OFFLINE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants />
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Engine.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="EngineFrame.cs~RF1fc1d964.TMP" />
+    <None Remove="EngineFrame.cs~RF1fdc0d18.TMP" />
+    <None Remove="EngineFrame.cs~RF1fdee87b.TMP" />
+    <None Remove="EngineFrame.cs~RF1fe2dfdc.TMP" />
+    <None Remove="EngineFrame.cs~RF1fe3cccc.TMP" />
+    <None Remove="EngineFrame.cs~RF1fe8b1e9.TMP" />
+    <None Remove="Extensions.cs~RF206e76e8.TMP" />
+    <None Remove="Extensions.cs~RF20732257.TMP" />
+    <None Remove="Networking.cs~RF20252d01.TMP" />
+    <None Remove="Networking.cs~RF2027317c.TMP" />
+    <None Remove="OfflineScoring.cs~RF3b431657.TMP" />
+    <None Remove="OfflineScoring.cs~RF3b437782.TMP" />
+    <None Remove="OfflineScoring.cs~RF3b4a8c30.TMP" />
+    <None Remove="Reporting.cs~RF2d0321.TMP" />
+    <None Remove="score-report.zip" />
+    <None Remove="Scoring.cs~RF1df40d3d.TMP" />
+    <None Remove="Scoring.cs~RF1f908392.TMP" />
+    <None Remove="Scoring.cs~RF1f9265cf.TMP" />
+    <None Remove="Scoring.cs~RF1f95b5e5.TMP" />
+    <None Remove="Scoring.cs~RF1fc23909.TMP" />
+    <None Remove="Scoring.cs~RF1fc31148.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Engine.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="score-report.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="srpview.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /y $(ProjectDir)Engine.cs $(SolutionDir)_build\Engine.cs" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp $(ProjectDir)Engine.cs $(SolutionDir)_build/Engine.cs" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /y $(ProjectDir)$(OutDir)$(TargetFileName) $(SolutionDir)_build\$(TargetFileName)" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="sudo cp $(ProjectDir)$(OutDir)$(TargetFileName) $(SolutionDir)_build/$(TargetFileName)" />
+  </Target>
+
+</Project>

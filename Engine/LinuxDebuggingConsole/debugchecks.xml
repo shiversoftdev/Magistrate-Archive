@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NOTE: All elements are LOWERCASE. All checks must define the following elements: key, id, points, flags, answer, arguments. This xml is for debugging builds ONLY -->
+<!--NOTE: All patch elements must define the following elements: key, flags, arguments-->
+<checks>
+  <targetplatform>linux</targetplatform>
+  
+  
+
+</checks>

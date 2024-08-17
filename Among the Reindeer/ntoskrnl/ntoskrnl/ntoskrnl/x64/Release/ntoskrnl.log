@@ -1,0 +1,8 @@
+﻿  dllmain.cpp
+     Creating library F:\Shiversoft\csse\Among the Reindeer\ntoskrnl\ntoskrnl\x64\Release\ntoskrnl.lib and object F:\Shiversoft\csse\Among the Reindeer\ntoskrnl\ntoskrnl\x64\Release\ntoskrnl.exp
+  Generating code
+  71 of 77 functions (92.2%) were compiled, the rest were copied from previous compilation.
+    70 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ntoskrnl.vcxproj -> F:\Shiversoft\csse\Among the Reindeer\ntoskrnl\ntoskrnl\x64\Release\ntoskrnl.dll

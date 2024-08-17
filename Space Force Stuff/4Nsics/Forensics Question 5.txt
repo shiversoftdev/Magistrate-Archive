@@ -1,0 +1,17 @@
+Forensics Question 5
+
+    - Please place your answer on the line marked ANSWER:
+    - Do not add leading or trailing non-whitespace characters
+    - If you need to type more than one answer, place each answer on a new line, prefixed by ANSWER:
+
+Which two elevated commands is the topsecret group able to invoke without entering a sudo password?
+
+Please fully qualify the path for each command.
+
+Please enter each command as its own answer.
+
+Example: /bin/zsh
+
+
+ANSWER: /usr/bin/sudo
+ANSWER: /bin/bash

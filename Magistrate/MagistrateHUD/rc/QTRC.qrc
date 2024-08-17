@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/vm">
+        <file>img/vm_0.png</file>
+        <file>img/vm_1.png</file>
+        <file>img/vm_2.png</file>
+        <file>img/vm_3.png</file>
+        <file>img/vm_4.png</file>
+        <file>img/vm_5.png</file>
+        <file>img/vm_6.png</file>
+        <file>img/vm_7.png</file>
+        <file>img/vm_8.png</file>
+        <file>img/vm_9.png</file>
+        <file>img/vm_m.png</file>
+        <file>img/vm_e.png</file>
+        <file>img/vm_o.png</file>
+        <file>img/vm_r.png</file>
+        <file>img/vm_c.png</file>
+        <file>img/vm_s.png</file>
+        <file>img/sm64_s_button.png</file>
+        <file>img/sm64_mario.png</file>
+        <file>img/sm64_cameraX.png</file>
+        <file alias="MarioFont">font/Mario642.ttf</file>
+        <file>img/VM_srp_ico.png</file>
+        <file>img/VM_frq_ico.png</file>
+        <file>img/VM_readme_ico.png</file>
+        <file>img/VM_conf_ico.png</file>
+        <file>img/VM_points_ico.png</file>
+        <file>img/iatr-green.png</file>
+        <file>img/iatr-red.png</file>
+        <file alias="ICON_PointsLost">img/VM_pointloss.png</file>
+        <file alias="ICON_PointsGained">img/VM_pointgain.png</file>
+    </qresource>
+</RCC>
